@@ -1,6 +1,7 @@
 # Dashboard
 
 *Dashboard* is a project designed for parsing and analyzing COVID-19 data.
+[IPYNB scripts, Node.js/Express.js, PostgreSQL, Angular]
 
 ## Description
 
