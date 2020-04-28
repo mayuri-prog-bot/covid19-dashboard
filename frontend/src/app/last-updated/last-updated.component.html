@@ -1,0 +1,6 @@
+<mat-card class="card-subheader">
+  <p>Last updated at</p>
+  <p>
+    <strong *ngIf="statistics">{{statistics.lastUpdate | date:'medium'}}</strong>
+  </p>
+</mat-card>

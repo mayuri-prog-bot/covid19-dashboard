@@ -1,0 +1,39 @@
+<mat-card>
+  <div class="card-header">
+    <p>{{ title }}</p>
+  </div>
+
+  <mat-card-content>
+    <mat-tab-group>
+      <mat-tab label="Regions">
+        <app-table
+          [data]="statisticsService.regions$ | async"
+          [columns]="regionTableColumns"
+          [(selectedItem)]="statisticsService.selectedRegion"
+          (selectionChanged)="onRegionTableSelectionChanged($event)"
+        >
+        </app-table>
+      </mat-tab>
+
+      <mat-tab label="Provinces">
+        <app-table
+          [data]="statisticsService.provinces$ | async"
+          [columns]="provinceTableColumns"
+          [(selectedItem)]="statisticsService.selectedProvince"
+          (selectionChanged)="onProvinceTableSelectionChanged($event)"
+        >
+        </app-table>
+      </mat-tab>
+
+      <mat-tab label="Cities">
+        <app-table
+          [data]="statisticsService.cities$ | async"
+          [columns]="cityTableColumns"
+          [(selectedItem)]="statisticsService.selectedCity"
+          (selectionChanged)="onCityTableSelectionChanged($event)"
+        >
+        </app-table>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card-content>
+</mat-card>

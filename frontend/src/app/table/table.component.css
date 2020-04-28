@@ -1,0 +1,8 @@
+.selected {
+  background-color: #673ab7;
+}
+
+.mat-row:hover {
+  cursor: pointer;
+  background-color: #a28ccd;
+}

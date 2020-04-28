@@ -1,0 +1,6 @@
+python-dotenv
+requests
+pandas
+PyGithub
+sqlalchemy
+psycopg2

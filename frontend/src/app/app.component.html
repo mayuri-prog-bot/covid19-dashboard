@@ -1,0 +1,51 @@
+<div class="page">
+  <mat-toolbar
+    class="toolbar"
+    color="primary"
+  >
+    <h1>Coronavirus COVID-19 Global Statistics</h1>
+  </mat-toolbar>
+
+  <div class="content">
+    <div class="container">
+      <div class="fixed-width-column">
+        <app-statistics
+          [title]="'Total Confirmed Cases'"
+          [dataPropertyName]="'confirmed'"
+          [numberClass]="'red'"
+        ></app-statistics>
+        <app-last-updated></app-last-updated>
+      </div>
+
+      <div class="column">
+        <button
+          mat-button
+          color="primary"
+          (click)="showTop5USStates($event)"
+        >Show TOP 5 US States affected by COVID-19</button>
+
+        <app-map class="map"></app-map>
+
+        <app-chart class="chart"></app-chart>
+      </div>
+
+      <div class="fixed-width-column">
+        <app-statistics
+          [title]="'Total Deaths'"
+          [dataPropertyName]="'deaths'"
+          [numberClass]="'red'"
+        ></app-statistics>
+      </div>
+
+      <div class="fixed-width-column">
+        <app-statistics
+          [title]="'Total Recovered'"
+          [dataPropertyName]="'recovered'"
+          [numberClass]="'red'"
+        ></app-statistics>
+      </div>
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

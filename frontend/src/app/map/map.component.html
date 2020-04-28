@@ -1,0 +1,39 @@
+<mat-card>
+  <agm-map
+    [(latitude)]="location.lat"
+    [(longitude)]="location.lng"
+    [(zoom)]="location.zoom"
+    [disableDefaultUI]="false"
+    [zoomControl]="true"
+  >
+    <agm-circle
+      *ngFor="let marker of markers$ | async"
+      [latitude]="marker.latitude"
+      [longitude]="marker.longitude"
+      [radius]="3 * marker.confirmed"
+      [fillColor]="'red'"
+      [circleDraggable]="false"
+      [editable]="false"
+      [clickable]="true"
+      (circleClick)="onMarkerClick($event)"
+      (mouseOver)="infoWindow.open();"
+      (mouseOut)="infoWindow.close();"
+    >
+      <agm-info-window
+        [latitude]="marker.latitude"
+        [longitude]="marker.longitude"
+        [disableAutoPan]="false"
+        [isOpen]="infoWindowIsOpen"
+        #infoWindow
+      >
+        <div>
+          <h1>{{marker.region}}</h1>
+          <h2 *ngIf="marker.province">{{marker.province}}</h2>
+          <h3 *ngIf="marker.city">{{marker.city}}</h3>
+          <p>Confirmed: <span class="red">{{marker.confirmed | number}}</span></p>
+          <p>Deaths: {{marker.deaths | number}}</p>
+        </div>
+      </agm-info-window>
+    </agm-circle>
+  </agm-map>
+</mat-card>

@@ -1,0 +1,16 @@
+<mat-table [dataSource]="data">
+  <ng-container
+    *ngFor="let column of columns"
+    [matColumnDef]="column.name"
+  >
+    <mat-cell *matCellDef="let row">
+      {{ (column.type === ColumnType.Number) ? (row[column.name] | number) : row[column.name]}}
+    </mat-cell>
+  </ng-container>
+
+  <mat-row
+    [ngClass]="{'selected': selection.isSelected(row)}"
+    (click)="selection.select(row)"
+    *matRowDef="let row; columns: getDisplayedColumns();"
+  ></mat-row>
+</mat-table>
